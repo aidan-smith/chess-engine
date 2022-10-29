@@ -10,6 +10,11 @@
 #include "chess.h"
 
 int main() {
-    ack();
+    Move move = Move("g8a3");
+    Square from = move.from();
+    Square to = move.to();
+
+    std::cout << "Move: " << move.to_string() << " From: " << from.to_string() << " To: " << to.to_string() << std::endl;
+
     return 0;
 }
