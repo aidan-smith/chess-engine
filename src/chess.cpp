@@ -54,3 +54,4 @@ std::string Move::to_string() const {
     }
     return res;
   }
+

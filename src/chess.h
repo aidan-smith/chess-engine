@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-typedef uint64_t BitBoard;
+typedef uint64_t Bitboard;
 
 class Square {
 public:
@@ -36,7 +36,7 @@ public:
     Move(Square from, Square to) : data(from.raw() + (to.raw() << 6)) {}
     Move(Square from, Square to, Promotion promo)
         : data(from.raw() + (to.raw() << 6) +
-          (static_cast<uint8_t>(promo) << 12)) {}
+               (static_cast<uint8_t>(promo) << 12)) {}
     Move(const std::string &str);
     Move(const char* str) : Move(std::string(str)) {}
 
@@ -62,19 +62,20 @@ public:
     enum class Color : uint8_t {None, White, Black};
 
     Piece() = default;
+    Piece(Type type, Color color, bool en_passant = false)
+        : data(static_cast<uint8_t>(type) +
+               (static_cast<uint8_t>(color) << 4) + (en_passant << 6)) {}
 
     int raw() { return data; }
     Type type() { return Type(data & kPieceMask); }
     Color color() { return Color((data & kColorMask) >> 4); }
     bool en_passant() { return (data & kEnPassantMask) >> 6; }
-    bool castle() { return (data & kCastleMask) >> 7; }
 
 private:
     enum Masks : uint8_t {
         kPieceMask = 0x0E,     // 0:3
         kColorMask = 0x18,     // 4:5
         kEnPassantMask = 0x20, // 6
-        kCastleMask = 0x40,    // 7
     };
 
     uint8_t data; // 7 bits used.
