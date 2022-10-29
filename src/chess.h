@@ -1,4 +1,12 @@
-#pragma once
+/**
+* @file chess.h
+* @brief Provide some chess primatives.
+*
+* @author Aidan D. Smith
+*/
+
+#ifndef CHESS_H_
+#define CHESS_H_
 
 #include <cstdint>
 #include <string>
@@ -80,3 +88,5 @@ private:
 
     uint8_t data; // 7 bits used.
 };
+
+#endif

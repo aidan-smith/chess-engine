@@ -1,3 +1,10 @@
+/**
+* @file chess.cpp
+* @brief Implement some chess primatives.
+*
+* @author Aidan D. Smith
+*/
+
 #include "chess.h"
 
 std::string Square::to_string() const {

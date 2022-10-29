@@ -1,3 +1,13 @@
+/**
+* @file board.h
+* @brief Represent a chess board.
+*
+* @author Aidan D. Smith
+*/
+
+#ifndef BOARD_H_
+#define BOARD_H_
+
 #include <array>
 #include <string>
 #include <vector>
@@ -35,3 +45,5 @@ private:
 
     Castling castling;
 };
+
+#endif

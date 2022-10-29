@@ -1,3 +1,13 @@
+/**
+* @file position.h
+* @brief Represent a chess position.
+*
+* @author Aidan D. Smith
+*/
+
+#ifndef POSITION_H_
+#define POSITION_H_
+
 #include "board.h"
 
 class Position {
@@ -12,3 +22,4 @@ private:
     int game_ply;
 };
 
+#endif
